@@ -1,0 +1,11 @@
+<button
+  type="button"
+  [disabled]="disabled"
+  [ngClass]="[
+    'btn',
+    'btn-' + variant,
+    fullWidth ? 'btn-full' : ''
+  ]"
+>
+  <ng-content></ng-content>
+</button>

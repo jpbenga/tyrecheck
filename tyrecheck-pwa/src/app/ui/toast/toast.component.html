@@ -1,0 +1,13 @@
+<div
+  *ngIf="(toast.state$ | async) as t"
+  class="toast-wrap"
+  [class.show]="t.show"
+  [class.kind-info]="t.kind === 'info'"
+  [class.kind-success]="t.kind === 'success'"
+  [class.kind-error]="t.kind === 'error'"
+>
+  <div class="toast" *ngIf="t.show">
+    <span class="dot"></span>
+    <span class="msg">{{ t.message }}</span>
+  </div>
+</div>

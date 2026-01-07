@@ -1,0 +1,280 @@
+.result-root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--background, #0f1419);
+  overflow-y: auto;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  height: 260px;
+  background: var(--surfaceHighlight, #252d3a);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.60;
+  transform: scale(1.02);
+}
+
+.hero-fade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--background, #0f1419), rgba(0,0,0,0));
+}
+
+.hero-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-path {
+  fill: none;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  opacity: 0.95;
+  animation: dash 1.8s ease-out 1;
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 80; opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* ---------- CONTENT ---------- */
+.content {
+  flex: 1;
+  margin-top: -48px;
+  padding: 0 18px 26px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card {
+  background: var(--surface, #1e2530);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 28px;
+  padding: 18px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.55);
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0,229,204,0.10);
+  color: var(--primary, #00e5cc);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.badge.bad {
+  background: rgba(255,68,68,0.10);
+  color: var(--danger, #ff4444);
+}
+
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+.title {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.15;
+  color: #fff;
+  font-weight: 800;
+}
+
+.desc {
+  margin: 12px 0 0;
+  color: rgba(255,255,255,0.70);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.probs {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+}
+
+.gauge {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  flex-shrink: 0;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gauge-track {
+  fill: none;
+  stroke: #252d3a;
+  stroke-width: 5;
+}
+
+.gauge-value {
+  fill: none;
+  stroke-width: 5;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 600ms ease;
+}
+
+.gauge-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.stats {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat {
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.stat-label {
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.actions {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.btn {
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  padding: 16px 18px;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.btn.danger {
+  background: var(--danger, #ff4444);
+  color: #fff;
+}
+
+.btn.danger:hover {
+  filter: brightness(1.05);
+}
+
+.extras {
+  display: grid;
+  gap: 10px;
+}
+
+.report {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(37,45,58,0.35);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.report-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shield {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: rgba(59,130,246,0.12);
+}
+
+.report-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.report-sub {
+  color: rgba(255,255,255,0.45);
+  font-size: 12px;
+}
+
+.chev {
+  color: rgba(255,255,255,0.35);
+  font-size: 22px;
+  padding: 0 6px;
+}
+
+.share {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 0;
+  color: rgba(255,255,255,0.55);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.share:hover {
+  color: #fff;
+}

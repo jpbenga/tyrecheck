@@ -1,0 +1,105 @@
+<div class="result-root">
+  <!-- HERO -->
+  <div class="hero">
+    <div
+      class="hero-bg"
+      [style.background-image]="imageUrl ? 'url(' + imageUrl + ')' : 'none'"
+    ></div>
+    <div class="hero-fade"></div>
+
+    <svg class="hero-svg" viewBox="0 0 600 200" preserveAspectRatio="none">
+      <path
+        d="M 0 100 Q 150 50 300 100 T 600 100"
+        class="hero-path"
+        [attr.stroke]="color"
+      />
+    </svg>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="card">
+      <div class="card-top">
+        <div>
+          <div class="badge" [class.bad]="status === 'warning'">
+            <span class="dot"></span>
+            <span>{{ status === 'success' ? 'Safe' : 'Unsafe' }}</span>
+          </div>
+
+          <h1 class="title">{{ title }}</h1>
+        </div>
+
+        <!-- Gauge -->
+        <div class="gauge">
+          <svg class="gauge-svg" viewBox="0 0 64 64">
+            <circle class="gauge-track" cx="32" cy="32" r="28"></circle>
+            <circle
+              class="gauge-value"
+              cx="32"
+              cy="32"
+              r="28"
+              [attr.stroke]="color"
+              [attr.stroke-dasharray]="175"
+              [attr.stroke-dashoffset]="175 - (175 * score) / 100"
+            ></circle>
+          </svg>
+          <div class="gauge-text">{{ score }}%</div>
+        </div>
+      </div>
+
+      <p class="desc">{{ description }}</p>
+      <div class="probs" *ngIf="probs">{{ probsText() }}</div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-label">Est. Mileage</div>
+          <div class="stat-value mono">
+            {{ status === 'success' ? '12k mi' : '< 500 mi' }}
+          </div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-label">Groove Depth</div>
+          <div class="stat-value mono">
+            {{ status === 'success' ? '6.2mm' : '1.4mm' }}
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button
+          class="btn danger"
+          *ngIf="status === 'warning'"
+          type="button"
+        >
+          Find Replacement Shops
+        </button>
+
+        <app-button
+          [variant]="status === 'warning' ? 'secondary' : 'primary'"
+          [fullWidth]="true"
+          (click)="onRestart()"
+        >
+          Scan Another Tire
+        </app-button>
+      </div>
+    </div>
+
+    <div class="extras">
+      <div class="report">
+        <div class="report-left">
+          <div class="shield">🛡</div>
+          <div>
+            <div class="report-title">Full Report</div>
+            <div class="report-sub">PDF available</div>
+          </div>
+        </div>
+        <div class="chev">›</div>
+      </div>
+
+      <button class="share" type="button">
+        Share Result
+      </button>
+    </div>
+  </div>
+</div>

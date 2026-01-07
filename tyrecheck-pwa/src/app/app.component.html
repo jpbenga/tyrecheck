@@ -1,0 +1,25 @@
+<app-landing
+  *ngIf="view === 'landing'"
+  (start)="goCamera()"
+/>
+
+<app-camera
+  *ngIf="view === 'camera'"
+  (capture)="goProcessing()"
+  (back)="goLanding()"
+/>
+
+<app-processing
+  *ngIf="view === 'processing'"
+  (complete)="goResult()"
+/>
+
+<app-result
+  *ngIf="view === 'result'"
+  (restart)="goCamera()"
+/>
+
+<!-- Discreet signature -->
+<div class="signature">
+  by Jean-Paul Benga
+</div>

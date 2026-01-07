@@ -1,0 +1,73 @@
+.overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  
+  .corner {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-color: #00e5cc;
+    border-style: solid;
+    border-width: 0;
+    border-radius: 10px;
+    opacity: 0.9;
+  }
+  .corner.tl { top: 16px; left: 16px; border-top-width: 2px; border-left-width: 2px; border-top-left-radius: 14px; }
+  .corner.tr { top: 16px; right: 16px; border-top-width: 2px; border-right-width: 2px; border-top-right-radius: 14px; }
+  .corner.bl { bottom: 16px; left: 16px; border-bottom-width: 2px; border-left-width: 2px; border-bottom-left-radius: 14px; }
+  .corner.br { bottom: 16px; right: 16px; border-bottom-width: 2px; border-right-width: 2px; border-bottom-right-radius: 14px; }
+  
+  .grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.20;
+    background-image:
+      linear-gradient(rgba(0, 229, 204, 0.5) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 204, 0.5) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  .scanLine {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #00e5cc;
+    box-shadow: 0 0 15px rgba(0,229,204,0.8);
+    animation: scan 3s linear infinite;
+    z-index: 10;
+  }
+  .scanGlow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, #00e5cc, transparent);
+    opacity: 0.5;
+    filter: blur(6px);
+  }
+  
+  @keyframes scan {
+    0% { top: 10%; }
+    50% { top: 90%; }
+    100% { top: 10%; }
+  }
+  
+  .tech {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    font-size: 10px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(0,229,204,0.7);
+  }
+  

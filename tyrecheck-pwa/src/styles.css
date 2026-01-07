@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+/* Global reset + app background */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  
+  body {
+    background: #000;            /* IMPORTANT: supprime le blanc autour */
+    color: #ffffff;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  
+  /* Optional: better font rendering */
+  * {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --background: #0f1419;
+    --surface: #1e2530;
+    --surfaceHighlight: #252d3a;
+  
+    --primary: #00e5cc;
+    --primaryHover: #00ff88;
+  
+    --danger: #ff4444;
+  
+    --textMain: #ffffff;
+    --textMuted: #9ca3af;
+  }
+  
+  /* Utility-ish classes used by our components */
+  .bg-background { background: var(--background); }
+  .bg-surface { background: var(--surface); }
+  .bg-surfaceHighlight { background: var(--surfaceHighlight); }
+  
+  .text-main { color: var(--textMain); }
+  .text-muted { color: var(--textMuted); }
+  
+  .border-soft { border: 1px solid rgba(255,255,255,0.08); }
+  .shadow-2xl { box-shadow: 0 30px 80px rgba(0,0,0,0.55); }
+  
+  /* Make the "phone" container feel like the prototype */
+  .app-shell {
+    min-height: 100vh;
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .phone-frame {
+    width: 100%;
+    max-width: 420px;
+    height: 100vh;
+    background: var(--background);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  @media (min-width: 640px) {
+    .phone-frame {
+      height: 90vh;
+      border-radius: 2rem;
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+    }
+  }
+  

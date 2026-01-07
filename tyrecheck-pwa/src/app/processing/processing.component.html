@@ -1,0 +1,38 @@
+<div class="processing">
+  <!-- Photo de fond: celle que l'utilisateur a capturée / uploadée -->
+  <div
+    class="bg"
+    *ngIf="imageUrl"
+    [style.background-image]="'url(' + imageUrl + ')'"
+  ></div>
+
+  <!-- Fade pour garder le style “tech dark” -->
+  <div class="bg-fade"></div>
+
+  <!-- scan lines -->
+  <div class="scan scan-1"></div>
+  <div class="scan scan-2"></div>
+
+  <div class="content">
+    <!-- Spinner -->
+    <div class="spinner">
+      <div class="ring outer"></div>
+      <div class="ring inner"></div>
+      <div class="core">AI</div>
+    </div>
+
+    <h2 class="title">AI Processing</h2>
+
+    <div class="steps">
+      <div
+        *ngFor="let label of steps; let i = index"
+        class="step"
+        [class.active]="i === step"
+        [class.done]="i < step"
+      >
+        <span class="dot"></span>
+        <span class="text">{{ label }}</span>
+      </div>
+    </div>
+  </div>
+</div>
