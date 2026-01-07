@@ -1,0 +1,8 @@
+node_modules
+tyrecheck-pwa/node_modules
+tyrecheck-pwa/dist
+.angular
+dist
+uploads
+*.log
+.git
