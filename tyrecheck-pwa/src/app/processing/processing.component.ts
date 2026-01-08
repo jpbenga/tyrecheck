@@ -20,11 +20,12 @@ export class ProcessingComponent implements OnInit, OnDestroy {
   step = 0;
   imageUrl: string | null = null;
 
+  // ⬇️ TEXTES FR
   steps = [
-    'Analyzing tread depth...',
-    'Mapping wear patterns...',
-    'Comparing with database...',
-    'Finalizing diagnosis...',
+    'Analyse de la profondeur des rainures…',
+    'Cartographie des motifs d’usure…',
+    'Comparaison avec la base de données…',
+    'Finalisation du diagnostic…',
   ];
 
   constructor(private store: ScanStore) {}

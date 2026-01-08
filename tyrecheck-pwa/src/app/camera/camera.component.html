@@ -1,12 +1,12 @@
 <div class="camera-root">
   <!-- Top Bar -->
   <div class="topbar">
-    <button class="icon-btn" (click)="onBack()" aria-label="Back">
+    <button class="icon-btn" (click)="onBack()" aria-label="Retour">
       ✕
     </button>
 
-    <div class="live-pill" *ngIf="mode === 'camera'">LIVE</div>
-    <div class="live-pill alt" *ngIf="mode === 'upload'">UPLOAD</div>
+    <div class="live-pill" *ngIf="mode === 'camera'">EN DIRECT</div>
+    <div class="live-pill alt" *ngIf="mode === 'upload'">IMPORT</div>
   </div>
 
   <!-- Viewfinder Area -->
@@ -18,17 +18,17 @@
       <app-scanner-overlay [active]="isReady"></app-scanner-overlay>
 
       <div class="hint">
-        <p>Align tire tread within the frame</p>
+        <p>Aligne la bande de roulement dans le cadre</p>
       </div>
 
       <!-- if autoplay blocked or camera error -->
       <div class="camera-overlay" *ngIf="cameraError">
         <div class="camera-card">
-          <div class="camera-title">Camera unavailable</div>
+          <div class="camera-title">Caméra indisponible</div>
           <div class="camera-text">{{ cameraError }}</div>
           <div class="camera-actions">
-            <button class="secondary" (click)="enableCamera()">Try again</button>
-            <button class="primary" (click)="switchToUpload()">Use upload</button>
+            <button class="secondary" (click)="enableCamera()">Réessayer</button>
+            <button class="primary" (click)="switchToUpload()">Importer une photo</button>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
         <app-scanner-overlay [active]="false"></app-scanner-overlay>
 
         <div class="hint">
-          <p>Upload a tire tread photo</p>
+          <p>Importe une photo de la bande de roulement</p>
         </div>
       </div>
 
@@ -67,7 +67,7 @@
     <div class="controls-row">
       <!-- Left side: only shows in upload mode -->
       <button class="small-btn" (click)="switchToCamera()" *ngIf="mode === 'upload'">
-        Camera
+        Caméra
       </button>
 
       <!-- CAPTURE / PICK -->
@@ -75,18 +75,18 @@
         class="capture-btn"
         [disabled]="isUploading"
         (click)="mode === 'camera' ? captureFromCamera() : triggerFilePicker()"
-        aria-label="Capture"
+        aria-label="Capturer"
       >
         <span class="capture-inner"></span>
       </button>
 
       <!-- Right side: upload always available -->
       <button class="small-btn" (click)="switchToUploadAndPick()">
-        Upload
+        Importer
       </button>
     </div>
 
     <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
-    <div class="loading" *ngIf="isUploading">Analyzing…</div>
+    <div class="loading" *ngIf="isUploading">Analyse en cours…</div>
   </div>
 </div>

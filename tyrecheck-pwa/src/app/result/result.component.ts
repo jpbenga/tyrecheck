@@ -25,8 +25,10 @@ export class ResultComponent implements OnInit, OnDestroy {
   status: 'success' | 'warning' = 'success';
   score = 0;
   color = '#00e5cc';
-  title = 'Excellent Condition';
-  description = 'Your tires are in great shape. Safe for all weather conditions.';
+
+  // ⬇️ TEXTES FR
+  title = 'État excellent';
+  description = 'Vos pneus sont en excellent état. Sécurisés pour toutes les conditions.';
 
   constructor(private store: ScanStore) {}
 
@@ -35,10 +37,11 @@ export class ResultComponent implements OnInit, OnDestroy {
       if (s.status === 'result') {
         this.imageUrl = s.imageUrl;
         this.predictedClass = s.result.class ?? null;
-        this.confidence = typeof s.result.confidence === 'number' ? s.result.confidence : null;
+        this.confidence =
+          typeof s.result.confidence === 'number' ? s.result.confidence : null;
         this.probs = s.result.probs ?? null;
       } else if (s.status === 'processing') {
-        // si on arrive ici pendant une transition, on garde l'image
+        // garder l'image pendant la transition
         this.imageUrl = s.imageUrl;
         this.predictedClass = null;
         this.confidence = null;
@@ -57,10 +60,11 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.score = this.confidence ? Math.round(this.confidence * 100) : 0;
       this.color = isBad ? '#ff4444' : '#00e5cc';
 
-      this.title = isBad ? 'Replacement Needed' : 'Excellent Condition';
+      // ⬇️ TEXTES FR DYNAMIQUES
+      this.title = isBad ? 'Remplacement nécessaire' : 'État excellent';
       this.description = isBad
-        ? 'Tread depth is critically low. Hydroplaning risk detected.'
-        : 'Your tires are in great shape. Safe for all weather conditions.';
+        ? 'La profondeur des rainures est critique. Risque élevé d’aquaplaning.'
+        : 'Vos pneus sont en excellent état. Sécurisés pour toutes les conditions.';
     });
   }
 
@@ -77,7 +81,7 @@ export class ResultComponent implements OnInit, OnDestroy {
   probsText(): string {
     if (!this.probs) return '';
     return Object.entries(this.probs)
-      .map(([k, v]) => `${k}: ${(v * 100).toFixed(1)}%`)
+      .map(([k, v]) => `${k} : ${(v * 100).toFixed(1)}%`)
       .join(' • ');
   }
 }

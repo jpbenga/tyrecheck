@@ -23,7 +23,7 @@
         <div>
           <div class="badge" [class.bad]="status === 'warning'">
             <span class="dot"></span>
-            <span>{{ status === 'success' ? 'Safe' : 'Unsafe' }}</span>
+            <span>{{ status === 'success' ? 'Sûr' : 'Dangereux' }}</span>
           </div>
 
           <h1 class="title">{{ title }}</h1>
@@ -52,14 +52,14 @@
 
       <div class="stats">
         <div class="stat">
-          <div class="stat-label">Est. Mileage</div>
+          <div class="stat-label">Kilométrage estimé</div>
           <div class="stat-value mono">
-            {{ status === 'success' ? '12k mi' : '< 500 mi' }}
+            {{ status === 'success' ? '19 000 km' : '< 800 km' }}
           </div>
         </div>
 
         <div class="stat">
-          <div class="stat-label">Groove Depth</div>
+          <div class="stat-label">Profondeur des rainures</div>
           <div class="stat-value mono">
             {{ status === 'success' ? '6.2mm' : '1.4mm' }}
           </div>
@@ -72,7 +72,7 @@
           *ngIf="status === 'warning'"
           type="button"
         >
-          Find Replacement Shops
+          Trouver un centre de remplacement
         </button>
 
         <app-button
@@ -80,7 +80,7 @@
           [fullWidth]="true"
           (click)="onRestart()"
         >
-          Scan Another Tire
+          Scanner un autre pneu
         </app-button>
       </div>
     </div>
@@ -90,15 +90,15 @@
         <div class="report-left">
           <div class="shield">🛡</div>
           <div>
-            <div class="report-title">Full Report</div>
-            <div class="report-sub">PDF available</div>
+            <div class="report-title">Rapport complet</div>
+            <div class="report-sub">PDF disponible</div>
           </div>
         </div>
         <div class="chev">›</div>
       </div>
 
       <button class="share" type="button">
-        Share Result
+        Partager le résultat
       </button>
     </div>
   </div>
